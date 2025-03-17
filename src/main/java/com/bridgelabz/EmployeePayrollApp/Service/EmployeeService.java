@@ -29,6 +29,7 @@ public class EmployeeService {
         Employee employee = new Employee();
         employee.setName(employeeDTO.getName());
         employee.setSalary(employeeDTO.getSalary());
+        System.out.println("Saving Employee: " + employee.getName());
 
         return employeeRepository.save(employee);
     }
