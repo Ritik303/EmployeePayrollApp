@@ -1,4 +1,5 @@
 package com.bridgelabz.EmployeePayrollApp.Controller;
+import com.bridgelabz.EmployeePayrollApp.DTO.EmployeeDTO;
 import com.bridgelabz.EmployeePayrollApp.Entity.Employee;
 import com.bridgelabz.EmployeePayrollApp.Service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ public class EmployeeController {
     // GET all employees
     @GetMapping("/")
     public List<Employee> getAllEmployees() {
+
         return employeeService.getAllEmployees();
     }
 
@@ -28,14 +30,14 @@ public class EmployeeController {
 
     // POST - Create a new employee
     @PostMapping("/create")
-    public Employee createEmployee(@RequestBody Employee employee) {
-        return employeeService.saveEmployee(employee);
+    public Employee createEmployee(@RequestBody EmployeeDTO employeeDTO) {
+        return employeeService.saveEmployee(employeeDTO);
     }
 
     // PUT - Update an employee
     @PutMapping("/update/{id}")
-    public Employee updateEmployee(@PathVariable Long id, @RequestBody Employee employee) {
-        return employeeService.updateEmployee(id, employee);
+    public Employee updateEmployee(@PathVariable Long id, @RequestBody EmployeeDTO employeeDTO) {
+        return employeeService.updateEmployee(id, employeeDTO);
     }
 
     // DELETE - Remove an employee
